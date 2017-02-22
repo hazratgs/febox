@@ -1,0 +1,26 @@
+@import "../../styles/variables.css";
+
+:global {
+  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Serif+Caption:400,400i|Roboto:100,300,400,500,700,900&subset=cyrillic');
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+body {
+  background-color: #fff;
+  font-size: 13px;
+  font-family: var(--roboto);
+  overflow-x: hidden;
+}
+
+
+
+
+
+
+

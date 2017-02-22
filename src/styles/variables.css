@@ -1,0 +1,32 @@
+:root {
+  --roboto: "Roboto", "Arial";
+  --open-sans: "Open Sans";
+  --pt-serif: "PT Serif Caption", "Giorgia";
+  --geometroa: "Geometria";
+  --gerbera: "Gerbera";
+  --futura-pt: "Futura PT";
+
+  --color-bg: #181c1e;
+  --color-text: #394655;
+  --color-text-light: #a5afbd;
+
+  --width: 1345px;
+
+  --position: 80px;
+
+  --font-smooth: {
+    font-smoothing: antialiased;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  };
+
+  --transition: {
+    transition: all 0.3s ease;
+  }
+}
+
+@media screen and (max-width: 1070px) {
+  :root {
+    --position: 40px;
+  }
+}

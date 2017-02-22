@@ -1,0 +1,154 @@
+@import "../../styles/variables.css";
+
+.wrapper {
+  width: 100vw;
+  height: 100vh;
+  min-height: 640px;
+  background-color: var(--color-bg);
+
+  & .item {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    & .data {
+      width: var(--width);
+      position: relative;
+      margin: auto;
+
+      & .content {
+        max-width: 750px;
+
+        & .head {
+          & h2 {
+            font-size: 60px;
+            line-height: 70px;
+            color: #fff;
+            font-family: var(--open-sans);
+            font-weight: 900;
+            margin-bottom: 25px;
+            @apply --font-smooth;
+          }
+
+          & p {
+            font-size: 15px;
+            font-family: var(--open-sans);
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 400;
+            line-height: 21px;
+            @apply --font-smooth;
+          }
+
+          & a {
+            display: inline-block;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+            padding: 0 40px 0 20px;
+            height: 40px;
+            line-height: 40px;
+            font-family: var(--open-sans);
+            margin-top: 35px;
+            font-size: 14px;
+            position: relative;
+            font-weight: 600;
+            border-radius: 30px;
+            color: rgba(255, 255, 255, 1);
+            box-sizing: content-box;
+            @apply --transition;
+            @apply --font-smooth;
+
+            &:hover {
+              border-color: #fff;
+
+              & svg {
+                fill: #fff;
+              }
+            }
+
+            & svg {
+              width: 24px;
+              height: 24px;
+              position: absolute;
+              fill: rgba(255, 255, 255, 0.2);
+              right: 10px;
+              top: 0;
+              bottom: 0;
+              margin: auto;
+              @apply --transition;
+            }
+          }
+        }
+      }
+    }
+
+    & .news {
+      position: absolute;
+      z-index: 10;
+      bottom: 150px;
+      width: var(--width);
+      left: 0;
+      right: 0;
+      margin: auto;
+      box-sizing: border-box;
+
+      & .news_wrapper {
+
+        & .title {
+          padding: 15px 0;
+          font-family: var(--open-sans);
+          font-weight: 300;
+          font-size: 16px;
+          color: rgba(255, 255, 255, 0.6);
+          @apply --font-smooth;
+        }
+
+        & .list {
+          display: flex;
+
+          & .element {
+            display: flex;
+            flex: 1;
+            box-sizing: border-box;
+            max-width: 360px;
+            margin-right: 80px;
+            position: relative;
+            z-index: 5;
+
+            & .content_news {
+              flex: 1;
+
+              & a {
+                color: rgba(255, 255, 255, 0.6);
+                font-family: var(--open-sans);
+                line-height: 22px;
+                font-weight: 300;
+                font-size: 13px;
+                @apply --font-smooth;
+                @apply --transition;
+
+                &:hover {
+                  color: #fff;
+
+                  & i {
+                    border-color: #fff;
+                  }
+                }
+
+                & i {
+                  color: rgba(255, 255, 255, 0.92);
+                  font-style: normal;
+                  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                  display: inline-block;
+                  line-height: 15px;
+                  @apply --transition;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
