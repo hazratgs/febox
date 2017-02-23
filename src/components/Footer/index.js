@@ -26,11 +26,11 @@ export default class Footer extends Component {
                         <div className={`${s.item} ${s.center}`}></div>
                         <div className={s.item}>
                             <div className={s.nav}>
-                                <a href='#'>О компании</a>,
-                                <a href='#'>Услуги</a>,
-                                <a href='#'>Работы</a>,
-                                <a href='#'>Блог</a>,
-                                <a href='#'>Контакты</a>
+                                <a href='#'>О компании<span>,</span></a>
+                                <a href='#'>Услуги<span>,</span></a>
+                                <a href='#'>Работы<span>,</span></a>
+                                <a href='#'>Блог<span>,</span></a>
+                                <a href='#'>Контакты<span>,</span></a>
                             </div>
                             <div className={s.doc}>
                                 <button>Бриф на разработку сайта</button>

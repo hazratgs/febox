@@ -1,7 +1,28 @@
 @import "../../styles/variables.css";
 
+@font-face {
+  font-family: "bandera";
+  src: url('../../static/font/bandera.woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "gerbera";
+  src: url('../../static/font/Gerbera.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "gerbera";
+  src: url('../../static/font/Gerbera_Light.otf');
+  font-weight: 300;
+  font-style: normal;
+}
+
 :global {
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|PT+Serif+Caption:400,400i|Roboto:100,300,400,500,700,900&subset=cyrillic');
+
 }
 
 * {
@@ -12,7 +33,7 @@
 }
 
 body {
-  background-color: #fff;
+  background-color: var(--color-bg);
   font-size: 13px;
   font-family: var(--roboto);
   overflow-x: hidden;

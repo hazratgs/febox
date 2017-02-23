@@ -3,16 +3,21 @@
   --open-sans: "Open Sans";
   --pt-serif: "PT Serif Caption", "Giorgia";
   --geometroa: "Geometria";
-  --gerbera: "Gerbera";
+  --gerbera: "gerbera";
   --futura-pt: "Futura PT";
+  --bandera: "bandera";
 
-  --color-bg: #181c1e;
+  --color-bg: #111;
   --color-text: #394655;
   --color-text-light: #a5afbd;
 
   --width: 1345px;
-
+  --padding: 0;
   --position: 80px;
+
+  --phone: initial;
+  --tablet: initial;
+  --pc: initial;
 
   --font-smooth: {
     font-smoothing: antialiased;
@@ -25,8 +30,32 @@
   }
 }
 
-@media screen and (max-width: 1070px) {
+@media screen and (max-width: 740px) {
   :root {
-    --position: 40px;
+    --phone: none;
+    --position: 20px;
+    --padding: 0 var(--position);
   }
 }
+
+@media screen and (max-width: 960px) {
+  :root {
+    --tablet: none;
+  }
+}
+
+@media screen and (max-width: 1345px) {
+  :root {
+    --position: 40px;
+    --width: 100%;
+    --padding: 0 var(--position);
+  }
+}
+
+@media screen and (max-width: 1500px) {
+  :root {
+    --width: 100%;
+    --padding: 0 var(--position);
+  }
+}
+

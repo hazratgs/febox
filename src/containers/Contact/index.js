@@ -4,6 +4,7 @@ import Textarea from 'react-textarea-autosize';
 import s from './styles.css'
 
 import FileIcon from './file.svg'
+import MapIcon from './map.svg'
 
 import { connect } from 'react-redux'
 import * as Actions from '../../actions/App'
@@ -29,6 +30,16 @@ class Contact extends Component {
         return (
             <div className={s.contact}>
                 <div className={s.wrapper}>
+                    <div className={`${s.map} ${s[this.state.loader]}`}>
+                        <MapIcon />
+                        <div className={s.data}>
+                            <div className={s.list}>
+                                <a className={s.email} href='#'>hello@febox.ru</a>
+                                <a className={s.phone} href='tel:+79285396966'>+7 (928) 539-69-66</a>
+                            </div>
+                            <div className={s.marker}><b></b>Дербент, Гагарина, 15а, 2 этаж</div>
+                        </div>
+                    </div>
                     <div className={s.content}>
                         <div className={`${s.form} ${s[this.state.loader]}`}>
                             <div className={s.item}>
@@ -61,13 +72,13 @@ class Contact extends Component {
                                     <label>чем мы можем вам помочь?</label>
                                 </div>
                             </div>
-                            <div className={s.item}>
-                                <div className={s.button}>
-                                    <button><span>отправить</span></button>
-                                </div>
+                            <div className={`${s.item} ${s.footer}`}>
                                 <div className={s.file}>
                                     <FileIcon/>
                                     <span>прикрепить документ</span>
+                                </div>
+                                <div className={s.button}>
+                                    <button><span>отправить</span></button>
                                 </div>
                             </div>
                             <div className={s.item}>

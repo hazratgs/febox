@@ -30,7 +30,7 @@ export default class Header extends Component {
                 <div className={s.nav}>
                     <div className={s.wrapper}>
                         <Link to='#'>работы</Link>
-                        <Link to='#'>о студия</Link>
+                        <Link to='/company'>о студия</Link>
                         <Link to='#'>блог</Link>
                         <Link to='/contact'>контакты</Link>
                     </div>

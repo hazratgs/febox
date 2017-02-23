@@ -15,6 +15,7 @@
 
     & .data {
       width: var(--width);
+      padding: var(--padding);
       position: relative;
       margin: auto;
 
@@ -26,17 +27,17 @@
             font-size: 60px;
             line-height: 70px;
             color: #fff;
-            font-family: var(--open-sans);
-            font-weight: 900;
+            font-family: var(--bandera);
+            font-weight: normal;
             margin-bottom: 25px;
             @apply --font-smooth;
           }
 
           & p {
             font-size: 15px;
-            font-family: var(--open-sans);
+            font-family: var(--gerbera);
             color: rgba(255, 255, 255, 0.6);
-            font-weight: 400;
+            font-weight: 300;
             line-height: 21px;
             @apply --font-smooth;
           }
@@ -47,12 +48,11 @@
             color: #fff;
             padding: 0 40px 0 20px;
             height: 40px;
-            line-height: 40px;
-            font-family: var(--open-sans);
+            line-height: 42px;
+            font-family: var(--gerbera);
             margin-top: 35px;
             font-size: 14px;
             position: relative;
-            font-weight: 600;
             border-radius: 30px;
             color: rgba(255, 255, 255, 1);
             box-sizing: content-box;
@@ -88,6 +88,7 @@
       z-index: 10;
       bottom: 150px;
       width: var(--width);
+      padding: var(--padding);
       left: 0;
       right: 0;
       margin: auto;
@@ -97,9 +98,9 @@
 
         & .title {
           padding: 15px 0;
-          font-family: var(--open-sans);
+          font-family: var(--gerbera);
           font-weight: 300;
-          font-size: 16px;
+          font-size: 17px;
           color: rgba(255, 255, 255, 0.6);
           @apply --font-smooth;
         }
@@ -121,7 +122,7 @@
 
               & a {
                 color: rgba(255, 255, 255, 0.6);
-                font-family: var(--open-sans);
+                font-family: var(--gerbera);
                 line-height: 22px;
                 font-weight: 300;
                 font-size: 13px;
@@ -141,7 +142,7 @@
                   font-style: normal;
                   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
                   display: inline-block;
-                  line-height: 15px;
+                  line-height: 14px;
                   @apply --transition;
                 }
               }
