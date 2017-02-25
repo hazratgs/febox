@@ -30,11 +30,11 @@ export default class Header extends Component {
                 <div className={s.nav}>
                     <div className={s.wrapper}>
                         <Link to='#'>работы</Link>
-                        <Link to='/company'>о студия</Link>
+                        <Link to='/company' activeClassName={s.active}>о студия</Link>
                         <Link to='#'>блог</Link>
-                        <Link to='/contact'>контакты</Link>
+                        <Link to='/contact' activeClassName={s.active}>контакты</Link>
                     </div>
-                    <div className={s.menu}>
+                    <div className={s.menu} onClick={this.props.handleShowAside}>
                         <MenuIcon/>
                     </div>
                 </div>
