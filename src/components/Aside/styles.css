@@ -18,11 +18,6 @@
 
     & .wrapper {
       transform: translate3d(0%, 0, 0);
-
-      & .nav {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
   }
 
@@ -53,12 +48,25 @@
     padding: 85px;
     transition: all 0.3s ease;
     transform: translate3d(100%, 0, 0);
+    min-height: 660px;
+    overflow-y: auto;
     z-index: 5;
 
+    & .scroll {
+      height: 100%;
+      position: relative;
+    }
+
     & .nav {
+      padding-bottom: 60px;
       transform: translateY(20px);
       opacity: 0;
       transition: all 0.6s cubic-bezier(0, 0.25, 0, 1);
+
+      &.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
       & .item {
         padding-bottom: 20px;
@@ -84,6 +92,161 @@
         }
       }
     }
-  }
 
+    & .social {
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0, 0.25, 0, 1);
+      position: relative;
+      left: -15px;
+
+      &.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      & a {
+        display: flex;
+        text-decoration: none;
+
+        &:hover {
+
+          & span {
+            border-bottom-color: transparent;
+          }
+        }
+
+        & svg {
+          width: 24px;
+          height: 24px;
+          margin-right: 15px;
+          display: block;
+          background-color: #4D76A1;
+          /*fill: #4D76A1;*/
+          fill: #4D76A1 ;
+        }
+
+        & span {
+          position: relative;
+          top: 4px;
+          height: 16px;
+          border-bottom: 1px solid;
+          display: block;
+          font-family: var(--gerbera);
+          color: #4D76A1;
+          @apply --font-smooth;
+          @apply --transition;
+
+        }
+      }
+    }
+
+    & .contact {
+      position: absolute;
+      bottom: 0;
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.6s cubic-bezier(0, 0.25, 0, 1);
+
+      &.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      & .phone {
+        margin-bottom: 25px;
+
+        & a {
+          display: block;
+          margin-bottom: 7px;
+          color: #000;
+          font-family: var(--gerbera);
+          font-size: 14px;
+          @apply --font-smooth;
+
+          &:hover {
+            & span {
+              border-bottom-color: transparent;
+            }
+          }
+
+          & span {
+            color: #000;
+            border-bottom: 1px solid;
+            @apply --transition;
+          }
+        }
+      }
+
+      & .address {
+        display: block;
+        margin-bottom: 10px;
+        color: #000;
+        font-family: var(--gerbera);
+        font-size: 14px;
+        @apply --font-smooth;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 740px) {
+  .aside {
+
+    &:after {
+      background-color: var(--color-bg);
+    }
+
+    & .wrapper {
+      padding: 30px;
+
+      & .nav {
+        padding-bottom: 15px;
+
+        & .item {
+          & a {
+            font-size: 20px;
+            padding: 6px 15px;
+          }
+        }
+      }
+
+      & .social {
+        left: 0;
+
+        & a {
+          & svg {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+          }
+
+          & span {
+            top: 1px;
+            font-size: 12px;
+            line-height: 18px;
+          }
+        }
+      }
+
+      & .contact {
+        padding-top: 40px;
+        position: relative;
+
+        & .phone {
+          & a {
+            font-size: 12px;
+
+            & span {
+              font-size: 12px;
+            }
+          }
+        }
+
+        & .address {
+          font-size: 12px;
+        }
+      }
+    }
+  }
 }
