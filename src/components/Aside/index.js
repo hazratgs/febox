@@ -3,6 +3,7 @@ import { Link } from 'react-router'
 import s from './styles.css'
 
 import VkIcon from './vk.svg'
+import InstagramIcon from './instagram.svg' // C536A4
 
 export default class Aside extends Component {
 
@@ -56,7 +57,11 @@ export default class Aside extends Component {
                         <div className={`${s.social} ${s[this.state.socialLoader]}`}>
                             <a href='/'>
                                 <VkIcon/>
-                                <span>Мы Вконтакте</span>
+                                <span>Пишем крутые посты</span>
+                            </a>
+                            <a href='/' className={s.instagram}>
+                                <InstagramIcon/>
+                                <span>Инстаграм</span>
                             </a>
                         </div>
                         <div className={`${s.contact} ${s[this.state.contactLoader]}`}>

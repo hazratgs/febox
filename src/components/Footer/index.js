@@ -30,7 +30,7 @@ export default class Footer extends Component {
                                 <a href='#'>Услуги<span>,</span></a>
                                 <a href='#'>Работы<span>,</span></a>
                                 <a href='#'>Блог<span>,</span></a>
-                                <a href='#'>Контакты<span>,</span></a>
+                                <a href='#'>Контакты</a>
                             </div>
                             <div className={s.doc}>
                                 <button>Бриф на разработку сайта</button>

@@ -125,6 +125,86 @@
           }
         }
       }
+
+      & .team {
+        max-width: 720px;
+        padding: 40px 0 0 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-wrap: wrap;
+
+        & .item {
+          width: calc(50% - 25px);
+          height: 470px;
+          margin-left: 50px;
+          position: relative;
+          overflow: hidden;
+          margin-bottom: 40px;
+
+          &:nth-child(1){
+            margin-left: 0;
+          }
+
+          &:hover {
+            & img {
+              transform: scale(1.05);
+            }
+
+            & strong {
+              opacity: 1;
+              transform: scale(1) translateY(0);
+            }
+
+            & span {
+              opacity: 1;
+              transform: scale(1) translateY(0);
+            }
+          }
+
+          & img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            display: block;
+            left: 0;
+            top: 0;
+            object-fit: cover;
+            transition: all 4s cubic-bezier(0, 0.49, 0.58, 1);
+            transform: scale(1);
+            background-color: #333;
+          }
+
+          & strong {
+            font-family: var(--bandera);
+            font-size: 30px;
+            color: #fff;
+            position: absolute;
+            left: 40px;
+            bottom: 50px;
+            z-index: 5;
+            font-weight: normal;
+            opacity: 0;
+            transform: scale(1) translateY(15px);
+            transition: all 0.3s cubic-bezier(0, 0.49, 0.58, 1);
+            @apply --font-smooth;
+          }
+
+          & span {
+            font-family: var(--gerbera);
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.8);
+            position: absolute;
+            left: 40px;
+            bottom: 30px;
+            z-index: 5;
+            font-weight: 300;
+            opacity: 0;
+            transform: scale(1) translateY(15px);
+            transition: all 0.3s cubic-bezier(0, 0.49, 0.58, 1);
+            @apply --font-smooth;
+          }
+        }
+      }
     }
   }
 }
@@ -170,6 +250,14 @@
         width: 50%;
       }
     }
+
+    & .team {
+      & .item {
+        height: 370px;
+        margin-left: 0!important;
+        width: 100%!important;
+      }
+    }
   }
 }
 
@@ -177,5 +265,22 @@
   .company .wrapper .content {
     padding: 100px 0 50px;
 
+    & .team {
+      & .item {
+        height: 370px;
+        margin-left: 20px;
+        width: calc(50% - 10px);
+
+        & strong, & span {
+          left: 25px;
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+    }
   }
+}
+
+@media screen and (max-width: 1000px) {
+
 }

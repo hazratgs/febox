@@ -106,8 +106,31 @@ class Company extends Component {
                         <div className={s.block}>
                             <p>Сочетание дизайна, технологий и анимации дает нам преимущество на рынке и отличает наши работы.</p>
                         </div>
-
-
+                        <div className={s.block}>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <p></p>
+                            <h2>Команда</h2>
+                        </div>
+                        <div className={s.team}>
+                            <div className={s.item}>
+                                <img
+                                    alt='Алим Муминов'
+                                    src='http://altovision.ru/upload/iblock/f8e/f8e3079747540f69526c4d1d551cf147.jpg'/>
+                                <strong>Алим</strong>
+                                    <span>Art Director</span>
+                            </div>
+                            <div className={s.item}>
+                                <img
+                                    alt='Хазрат Гаджикеримов'
+                                    src='http://altovision.ru/upload/iblock/35b/35b3713a141047c91611bf74c9898afe.jpg'/>
+                                <strong>Хазрат</strong>
+                                <span>full stack developer</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <Footer/>
