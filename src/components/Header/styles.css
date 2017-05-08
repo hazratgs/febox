@@ -195,6 +195,21 @@
   }
 }
 
+@media screen and (max-width: 1345px) {
+  .header {
+    position: relative;
+    height: auto;
+
+    & .logo {
+      position: absolute;
+    }
+
+    & .nav {
+      position: absolute;
+    }
+  }
+}
+
 @media screen and (max-width: 570px) {
   .header {
     height: 64px;
@@ -203,7 +218,6 @@
     top: 0;
     left: 0;
     background-color: var(--color-bg);
-    /*border-bottom: 1px solid rgba(255, 255, 255, 0.03);*/
     box-shadow: 0px 5px 10px -3px rgba(0, 0, 0, 0.3);
     z-index: 9999;
 

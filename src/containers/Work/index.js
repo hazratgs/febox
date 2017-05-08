@@ -24,77 +24,25 @@ class Work extends Component {
         return (
             <div className={s.work}>
                 <div className={s.wrapper}>
-                    <div className={`${s.content} ${s[this.state.loader]}`}>
-                        <div className={`${s.item} ${s.big} ${s.white}`}>
-                            <div className={s.head}>
-                                <div className={s.name}>
-                                    <strong>Сайт завода «Калугатрансмаш»</strong>
-                                </div>
-                                <span>11.09.2016</span>
-                            </div>
-                            <div className={s.image}>
-                                <img src='https://img.artlebedev.ru/everything_files/images/3607/kaluga-teaser-mob.jpg'/>
-                            </div>
+                    <div className={s.item}>
+                        <div className={s.img}>
+                            <img src='https://png.cmtt.space/paper-preview-fox/f/oo/foodberry/79ee02a0960b-original.jpg'/>
                         </div>
-
-                        <div className={`${s.item} ${s.bg}`}>
-                            <div className={s.head}>
-                                <div className={s.name}>
-                                    <strong>Фонтанус-2</strong>
-                                </div>
-                                <span>06.02.2017</span>
-                            </div>
-                            <div className={s.image}>
-                                <img src='https://img.artlebedev.ru/everything_files/images/3571/fontanus-1-600.jpg'/>
-                            </div>
+                        <div className={s.content}>
+                            <div className={s.time}>17 мая 2017</div>
+                            <a href='#'>FoodBerry — приложение для предзаказа еды в ресторанах</a>
+                            <div className={s.description}>Позволяет выбрать позиции в меню, оплатить счёт и получить заказ без ожидания.</div>
                         </div>
+                    </div>
 
-                        <div className={`${s.item}`}>
-                            <div className={s.head}>
-                                <div className={s.name}>
-                                    <strong>Фирменный стиль сети супермаркетов «Семья»</strong>
-                                </div>
-                                <span>28.03.2017</span>
-                            </div>
-                            <div className={s.image}>
-                                <img src='https://img.artlebedev.ru/everything_files/images/3482/semya-600.png'/>
-                            </div>
+                    <div className={`${s.item} ${s.small}`}>
+                        <div className={s.img}>
+                            <img src='https://img.artlebedev.ru/everything_files/images/3457/licence-plates-1200.jpg' />
                         </div>
-
-                        <div className={`${s.item}  ${s.white}`}>
-                            <div className={s.head}>
-                                <div className={s.name}>
-                                    <strong>Инсталляции для витрин торговых центров «ТПС недвижимости»</strong>
-                                </div>
-                                <span>28.03.2017</span>
-                            </div>
-                            <div className={s.image}>
-                                <img src='https://img.artlebedev.ru/everything_files/images/3458/GIF.gif'/>
-                            </div>
-                        </div>
-
-                        <div className={`${s.item} ${s.big}`}>
-                            <div className={s.head}>
-                                <div className={s.name}>
-                                    <strong>Логотип парка им. Шевченко</strong>
-                                </div>
-                                <span>11.09.2016</span>
-                            </div>
-                            <div className={s.image}>
-                                <img src='https://img.artlebedev.ru/everything_files/images/3287/shevchenko-1200.jpg'/>
-                            </div>
-                        </div>
-
-                        <div className={`${s.item}  ${s.white}`}>
-                            <div className={s.head}>
-                                <div className={s.name}>
-                                    <strong>Логотип и вывеска пельменной</strong>
-                                </div>
-                                <span>28.03.2017</span>
-                            </div>
-                            <div className={s.image}>
-                                <img src='https://img.artlebedev.ru/everything_files/images/3306/pelmennaya-600.jpg'/>
-                            </div>
+                        <div className={s.content}>
+                            <div className={s.time}>25 апреля 2017</div>
+                            <a href='#'>Facebook — мобильный сервис бесплатных объявлений</a>
+                            <div className={s.description}>Работает на основе технологий компьютерного зрения, обработки естественного языка и машинного обучения.</div>
                         </div>
                     </div>
                 </div>
