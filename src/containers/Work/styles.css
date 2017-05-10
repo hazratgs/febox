@@ -1,12 +1,57 @@
 @import '../../styles/variables.css';
 
 .work {
-  padding-top: 150px;
+  padding-top: 200px;
 
   & .wrapper {
     width: var(--width);
     padding: var(--padding);
     margin: auto;
+
+    & h1 {
+      color: #fff;
+      font-weight: normal;
+      font-family: var(--bandera);
+      font-size: 63px;
+      margin-bottom: 15px;
+      display: block;
+      @apply --font-smooth;
+    }
+
+    & p {
+      max-width: 640px;
+      color: #fff;
+      font-size: 18px;
+      line-height: 28px;
+      min-height: 20px;
+      font-family: var(--gerbera);
+      font-weight: 300;
+      @apply --font-smooth;
+      margin-bottom: 80px;
+    }
+
+    & .tabs {
+      margin-bottom: 40px;
+
+      & .content {
+        display: inline-block;
+        border: 1px solid #fff;
+
+        & label {
+
+          & input {
+            display: none;
+          }
+
+          & span {
+            color: #fff;
+            font-family: var(--gerbera);
+            padding: 15px;
+            display: inline-block;
+          }
+        }
+      }
+    }
 
     & .item {
       max-width: 740px;
@@ -46,14 +91,15 @@
 
         & img {
           max-width: 100%;
+          border-radius: 1px;
         }
       }
 
       & .content {
 
         & .time {
-          font-size: 13px;
-          color: rgba(255, 255, 255, 0.3);
+          font-size: 12px;
+          color: rgba(255, 255, 255, 0.2);
           font-family: var(--gerbera);
           font-weight: 300;
           @apply --font-smooth;
@@ -64,9 +110,13 @@
           font-weight: normal;
           font-family: var(--bandera);
           font-size: 28px;
-          margin: 15px 0 20px;
+          margin: 10px 0 20px;
           display: block;
           @apply --font-smooth;
+
+          &:hover {
+            text-decoration: underline;
+          }
         }
 
         & .description {

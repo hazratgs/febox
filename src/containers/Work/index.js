@@ -24,9 +24,12 @@ class Work extends Component {
         return (
             <div className={s.work}>
                 <div className={s.wrapper}>
+                    <h1>Работы</h1>
+                    <p>Мы не используем готовые макеты, а с чистого листа создаем решение конкретной задачи</p>
+
                     <div className={s.item}>
                         <div className={s.img}>
-                            <img src='https://png.cmtt.space/paper-preview-fox/f/oo/foodberry/79ee02a0960b-original.jpg'/>
+                            <img src='https://pp.userapi.com/c837436/v837436933/192f3/U6y0vAgdWI4.jpg'/>
                         </div>
                         <div className={s.content}>
                             <div className={s.time}>17 мая 2017</div>

@@ -29,7 +29,7 @@ export default class Header extends Component {
                     <div className={s.wrapper}>
                         <Link to='/work' activeClassName={s.active}>работы</Link>
                         <Link to='/company' activeClassName={s.active}>о студия</Link>
-                        <Link to='#'>блог</Link>
+                        <Link to='#'>цены</Link>
                         <Link to='/contact' activeClassName={s.active}>контакты</Link>
                     </div>
                     <div className={s.menu} onClick={this.props.handleShowAside}>
