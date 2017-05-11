@@ -9,12 +9,11 @@ import * as Actions from '../../actions/App'
 import { bindActionCreators } from 'redux'
 
 class App extends Component {
-
     render() {
         return (
-            <div className={s.app}>
+            <div className={`${s.app} ${s[this.props.app.style]}`}>
                 <Header
-                    color={this.props.app.colorHeader}
+                    color={this.props.app.style}
                     handleShowAside={this.props.actions.showAside}
                     handleHideAside={this.props.actions.hideAside}
                 />

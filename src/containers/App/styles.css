@@ -21,10 +21,6 @@
   font-style: normal;
 }
 
-:global {
-
-}
-
 * {
   padding: 0;
   margin: 0;
@@ -39,6 +35,11 @@ body {
   overflow-x: hidden;
 }
 
+.app {
+  &.white {
+    background-color: var(--color-bg-white);
+  }
+}
 
 
 

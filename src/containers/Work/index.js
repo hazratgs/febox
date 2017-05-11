@@ -20,36 +20,57 @@ class Work extends Component {
         setTimeout(() => this.setState({loader: 'show'}), 60)
     }
 
+    componentWillMount(){
+
+        // Белый вариант дизайна
+        this.props.actions.appActions.changeStyleApp('white');
+    }
+
+    componentWillUnmount(){
+
+        // Белый вариант дизайна
+        this.props.actions.appActions.changeStyleApp('black');
+    }
+
     render() {
+        let data = [
+            {
+                img: 'https://ony.ru/upload/Blocks/image/case_thumb/eb1e3a99999d646d4a5737b592a63a76.jpg',
+                title: 'Новая Третьяковка',
+                type: 'Ребрендинг'
+            }
+        ];
+
+        let items = data.map(item => <Item item={item}/>);
+
         return (
             <div className={s.work}>
-                <div className={s.wrapper}>
-                    <h1>Работы</h1>
+                <div className={`${s.wrapper} ${s[this.state.loader]}`}>
+                    <h1>Портфолио</h1>
                     <p>Мы не используем готовые макеты, а с чистого листа создаем решение конкретной задачи</p>
 
-                    <div className={s.item}>
-                        <div className={s.img}>
-                            <img src='https://pp.userapi.com/c837436/v837436933/192f3/U6y0vAgdWI4.jpg'/>
-                        </div>
-                        <div className={s.content}>
-                            <div className={s.time}>17 мая 2017</div>
-                            <a href='#'>FoodBerry — приложение для предзаказа еды в ресторанах</a>
-                            <div className={s.description}>Позволяет выбрать позиции в меню, оплатить счёт и получить заказ без ожидания.</div>
-                        </div>
-                    </div>
-
-                    <div className={`${s.item} ${s.small}`}>
-                        <div className={s.img}>
-                            <img src='https://img.artlebedev.ru/everything_files/images/3457/licence-plates-1200.jpg' />
-                        </div>
-                        <div className={s.content}>
-                            <div className={s.time}>25 апреля 2017</div>
-                            <a href='#'>Facebook — мобильный сервис бесплатных объявлений</a>
-                            <div className={s.description}>Работает на основе технологий компьютерного зрения, обработки естественного языка и машинного обучения.</div>
-                        </div>
+                    <div className={s.content}>
+                        {items}
                     </div>
                 </div>
                 <Footer/>
+            </div>
+        )
+    }
+}
+
+class Item extends Component {
+    render() {
+        return (
+            <div className={s.item}>
+                <div className={s.title}>
+                    <strong>{this.props.item.title}</strong>
+                    <p>{this.props.item.type}</p>
+                </div>
+                <div className={s.bg}>
+                    <div></div>
+                    <div className={s.overlay}></div>
+                </div>
             </div>
         )
     }

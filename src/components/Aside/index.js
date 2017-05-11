@@ -35,7 +35,7 @@ export default class Aside extends Component {
                         <div className={`${s.nav} ${s[this.state.navLoader]}`}>
                             <div className={s.item}>
                                 <Link
-                                    to='/works'
+                                    to='/work'
                                     activeClassName={s.active}
                                     onClick={this.props.handleHideAside}
                                 >портфолио</Link>

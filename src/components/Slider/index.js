@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router'
 import s from './styles.css'
 
 import ArrowIcon from './arrow.svg'
@@ -13,10 +14,10 @@ export default class Slider extends Component {
                             <div className={s.head}>
                                 <h2>Нам нравится делать красивые сайты</h2>
                                 <p>В нашей студии смелые идеи и современные технологии смешиваясь, образуют эффективный инструмент для решения любых задач</p>
-                                <a href='#'>
+                                <Link to='/contact'>
                                     Сделать заказ
                                     <ArrowIcon/>
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>

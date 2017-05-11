@@ -1,8 +1,16 @@
 import {
+    STYLE_APP,
     COLOR_HEADER,
     SHOW_ASIDE,
     HIDE_ASIDE
 } from '../constants/App'
+
+export function changeStyleApp(color) {
+    return {
+        type: STYLE_APP,
+        payload: color
+    }
+}
 
 export function changeColorHeader(color) {
     return (dispath) => {

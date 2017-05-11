@@ -1,5 +1,10 @@
 @import '../../styles/variables.css';
 
+:root {
+  --color-bg: #fff;
+  --color-text: #000;
+}
+
 .work {
   padding-top: 200px;
 
@@ -7,9 +12,17 @@
     width: var(--width);
     padding: var(--padding);
     margin: auto;
+    opacity: 1;
+    transform: translateY(0px);
+    transition: all 0.6s cubic-bezier(0, 0.3, 0.05, 0.93);
+
+    &.hidden {
+      transform: translateY(25px);
+      opacity: 0;
+    }
 
     & h1 {
-      color: #fff;
+      color: var(--color-text);
       font-weight: normal;
       font-family: var(--bandera);
       font-size: 63px;
@@ -20,7 +33,7 @@
 
     & p {
       max-width: 640px;
-      color: #fff;
+      color: var(--color-text);
       font-size: 18px;
       line-height: 28px;
       min-height: 20px;
@@ -30,105 +43,12 @@
       margin-bottom: 80px;
     }
 
-    & .tabs {
-      margin-bottom: 40px;
+    & .content {
+      display: flex;
 
-      & .content {
-        display: inline-block;
-        border: 1px solid #fff;
-
-        & label {
-
-          & input {
-            display: none;
-          }
-
-          & span {
-            color: #fff;
-            font-family: var(--gerbera);
-            padding: 15px;
-            display: inline-block;
-          }
-        }
-      }
-    }
-
-    & .item {
-      max-width: 740px;
-      margin-bottom: 60px;
-      padding-bottom: 60px;
-      border-bottom: 1px solid rgba(255, 255, 255, .03);
-
-      &:last-child {
-        border-bottom: 0;
-      }
-
-      &.small {
-        & .img {
-          margin: 30px 0 30px 30px;
-          float: right;
-          width: 100px;
-          height: 100px;
-
-          & img {
-            max-width: 100%;
-            max-height: 100%;
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            top: 0;
-            margin: auto;
-          }
-        }
-      }
-
-      & .img {
-        width: 100%;
-        margin-bottom: 30px;
-        overflow: hidden;
-        position: relative;
-
-        & img {
-          max-width: 100%;
-          border-radius: 1px;
-        }
-      }
-
-      & .content {
-
-        & .time {
-          font-size: 12px;
-          color: rgba(255, 255, 255, 0.2);
-          font-family: var(--gerbera);
-          font-weight: 300;
-          @apply --font-smooth;
-        }
-
-        & a {
-          color: #fff;
-          font-weight: normal;
-          font-family: var(--bandera);
-          font-size: 28px;
-          margin: 10px 0 20px;
-          display: block;
-          @apply --font-smooth;
-
-          &:hover {
-            text-decoration: underline;
-          }
-        }
-
-        & .description {
-          max-width: 740px;
-          color: #fff;
-          font-size: 18px;
-          line-height: 28px;
-          min-height: 20px;
-          font-family: var(--gerbera);
-          font-weight: 300;
-          @apply --font-smooth;
-        }
+      & .item {
+        flex: 1;
+        height: ;
       }
     }
   }
