@@ -10,7 +10,7 @@
     padding: var(--padding);
 
     & .content {
-      padding: 200px 0;
+      padding: 280px 0;
       width: var(--width);
       margin: auto;
       opacity: 1;

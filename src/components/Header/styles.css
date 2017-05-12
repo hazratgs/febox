@@ -1,7 +1,13 @@
 @import "../../styles/variables.css";
 
 .header {
-  height: 0;
+  width: var(--width);
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  top: var(--position);
+  padding: var(--padding);
 
   &.white {
     & .logo {
@@ -24,10 +30,6 @@
       & .wrapper {
         & a {
           color: #000;
-
-          &.active {
-            box-shadow: 0 3px 0 0 #000;
-          }
         }
       }
 
@@ -49,12 +51,18 @@
 
   &.black {}
 
+  & .wrapper {
+    position: relative;
+  }
+
   & .logo {
     user-select: none;
-    position: fixed;
-    left: var(--position);
-    top: var(--position);
+    position: absolute;
+    left: 0;
+    top: 0;
     z-index: 9999;
+    width: 48px;
+    height: 48px;
 
     & .wrapper {
       position: relative;
@@ -119,9 +127,9 @@
 
   & .nav {
     display: flex;
-    position: fixed;
-    right: var(--position);
-    top: var(--position);
+    position: absolute;
+    right: 0;
+    top: 0;
     z-index: 9999;
 
 
@@ -152,7 +160,7 @@
         }
 
         &.active {
-          box-shadow: 0 3px 0 0 #fff;
+          opacity: 0.4;
         }
       }
     }
@@ -203,20 +211,6 @@
   }
 }
 
-@media screen and (max-width: 1780px) {
-  .header {
-    position: relative;
-    height: auto;
-
-    & .logo {
-      position: absolute;
-    }
-
-    & .nav {
-      position: absolute;
-    }
-  }
-}
 
 @media screen and (max-width: 570px) {
   .header {

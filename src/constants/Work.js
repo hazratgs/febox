@@ -1,1 +1,5 @@
-export const WORK = 'WORK'
+export const CHANGE_TYPE_WORK = 'CHANGE_TYPE_WORK'
+export const LOADER_TYPE_WORK = 'LOADER_TYPE_WORK'
+export const SUCCESS_TYPE_WORK = 'SUCCESS_TYPE_WORK'
+
+export const HIDDEN_WORK = 'HIDDEN_WORK'

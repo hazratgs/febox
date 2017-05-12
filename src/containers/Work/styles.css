@@ -6,12 +6,12 @@
 }
 
 .work {
-  padding-top: 200px;
+  padding-top: 280px;
 
   & .wrapper {
-    width: var(--width);
-    padding: var(--padding);
-    margin: auto;
+    /*width: var(--width);*/
+    /*padding: var(--padding);*/
+    /*margin: auto;*/
     opacity: 1;
     transform: translateY(0px);
     transition: all 0.6s cubic-bezier(0, 0.3, 0.05, 0.93);
@@ -19,6 +19,12 @@
     &.hidden {
       transform: translateY(25px);
       opacity: 0;
+    }
+
+    & .block {
+      width: var(--width);
+      padding: var(--padding);
+      margin: auto;
     }
 
     & h1 {
@@ -39,31 +45,71 @@
       min-height: 20px;
       font-family: var(--gerbera);
       font-weight: 300;
+      margin-bottom: 60px;
       @apply --font-smooth;
-      margin-bottom: 80px;
     }
 
     & .tabs {
-      padding-bottom: 20px;
-
       & span {
         font-family: var(--gerbera);
         display: inline-block;
-        padding: 10px 25px;
+        padding: 30px 0;
+        margin-right: 50px;
+        font-size: 16px;
+        font-weight: 400;
+        cursor: pointer;
+        user-select: none;
+        @apply --font-smooth;
+        @apply --transition;
+
+        &:active {
+          transform: scale(0.95);
+        }
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:hover {
+          opacity: 0.4;
+        }
+
+        &.active {
+          opacity: 0.4;
+        }
       }
     }
 
     & .content {
       flex-wrap: wrap;
       display: flex;
+      /*width: var(--width);*/
+      /*padding: var(--padding);*/
+      /*margin: auto;*/
+
+      &.loader {
+        & .item {
+          opacity: 0;
+          transform: scale(0.96);
+        }
+      }
+
+      &.show {}
 
       & .item {
-        flex: 50%;
-        height: 480px;
+        /*flex: 50%;*/
+        /*height: 480px;*/
+        flex: 33.333%;
+        height: 600px;
         background-color: #eee;
         position: relative;
         cursor: pointer;
         overflow: hidden;
+        @apply --transition;
+
+        &:nth-child(2n){
+          z-index: 5;
+        }
 
         &:hover {
           & .title {
