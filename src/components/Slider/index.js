@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDriveIn from 'react-drive-in'
 import { Link } from 'react-router'
 import s from './styles.css'
 
@@ -6,9 +7,19 @@ import ArrowIcon from './arrow.svg'
 
 export default class Slider extends Component {
     render() {
+        // let video = [{
+        //     src: 'https://www.agima.ru/upload/iblock/f7d/f7dfd450297a53076fd5db307bd8bb7c.mp4',
+        //     autoPlay: true,
+        //     loop: true,
+        //     type: 'mp4'
+        // }]
+
         return (
             <div className={s.wrapper}>
                 <div className={s.item}>
+                    <ReactDriveIn
+                        show='https://www.agima.ru/upload/iblock/f7d/f7dfd450297a53076fd5db307bd8bb7c.mp4'
+                    />
                     <div className={s.data}>
                         <div className={s.content}>
                             <div className={s.head}>

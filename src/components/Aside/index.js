@@ -48,6 +48,13 @@ export default class Aside extends Component {
                                 >студия</Link>
                             </div>
                             <div className={s.item}>
+                                <Link
+                                    to='/company'
+                                    activeClassName={s.active}
+                                    onClick={this.props.handleHideAside}
+                                >цены</Link>
+                            </div>
+                            <div className={s.item}>
                                 <Link to='/contact'
                                       activeClassName={s.active}
                                       onClick={this.props.handleHideAside}
