@@ -105,7 +105,11 @@
         position: relative;
         cursor: pointer;
         overflow: hidden;
-        @apply --transition;
+        transition: all 0.3s cubic-bezier(0.23, 0.32, 0.51, 0.91);
+
+        &:active {
+          transform: scale(0.96);
+        }
 
         &:hover {
           & .title {

@@ -18,14 +18,14 @@ export function changeTypeWork(type) {
                 type: CHANGE_TYPE_WORK,
                 payload: type
             })
-        }, 250)
+        }, 300)
 
         setTimeout(() => {
             dispath({
                 type: SUCCESS_TYPE_WORK,
                 payload: 'show'
             })
-        }, 500)
+        }, 600)
     }
 }
 
