@@ -100,16 +100,12 @@
         /*flex: 50%;*/
         /*height: 480px;*/
         flex: 33.333%;
-        height: 600px;
+        height: 480px;
         background-color: #eee;
         position: relative;
         cursor: pointer;
         overflow: hidden;
         @apply --transition;
-
-        &:nth-child(2n){
-          z-index: 5;
-        }
 
         &:hover {
           & .title {
