@@ -24,6 +24,10 @@
       & .wrapper {
         & a {
           color: #000;
+
+          &.active {
+            box-shadow: 0 3px 0 0 #000;
+          }
         }
       }
 
@@ -130,6 +134,7 @@
       & a {
         color: #fff;
         line-height: 42px;
+        padding: 2px 0;
         font-size: 17px;
         font-family: var(--gerbera);
         font-weight: 300;
@@ -147,7 +152,7 @@
         }
 
         &.active {
-          color: red;
+          box-shadow: 0 3px 0 0 #fff;
         }
       }
     }

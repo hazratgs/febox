@@ -33,22 +33,19 @@ class Work extends Component {
     }
 
     render() {
-        let data = [
-            {
-                img: 'https://ony.ru/upload/Blocks/image/case_thumb/eb1e3a99999d646d4a5737b592a63a76.jpg',
-                title: 'Новая Третьяковка',
-                type: 'Ребрендинг'
-            }
-        ];
-
-        let items = data.map(item => <Item item={item}/>);
+        let items = this.props.work.works.map((item, index) => <Item key={index} item={item}/>);
 
         return (
             <div className={s.work}>
                 <div className={`${s.wrapper} ${s[this.state.loader]}`}>
-                    <h1>Портфолио</h1>
-                    <p>Мы не используем готовые макеты, а с чистого листа создаем решение конкретной задачи</p>
-
+                    <h1>Студия Фебокс —<br/>это производственное digital-агентство</h1>
+                    <p>Мы делаем сайты, приложения и фирменные стили. Готовые продукты не бросаем, а предлагаем поддержку: вдруг вам понадобится сделать презентацию или добавить на сайт раздел.</p>
+                    <div className={s.tabs}>
+                        <span>Landscape</span>
+                        <span>Portraits</span>
+                        <span>Adventure</span>
+                        <span>People</span>
+                    </div>
                     <div className={s.content}>
                         {items}
                     </div>
@@ -61,6 +58,9 @@ class Work extends Component {
 
 class Item extends Component {
     render() {
+        let style = {
+            backgroundImage: `url(${this.props.item.img})`
+        }
         return (
             <div className={s.item}>
                 <div className={s.title}>
@@ -68,7 +68,7 @@ class Item extends Component {
                     <p>{this.props.item.type}</p>
                 </div>
                 <div className={s.bg}>
-                    <div></div>
+                    <div className={s.img} style={style}></div>
                     <div className={s.overlay}></div>
                 </div>
             </div>
