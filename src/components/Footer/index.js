@@ -43,7 +43,7 @@ export default class Footer extends Component {
                     </div>
                     <div className={s.wrapper}>
                         <div className={s.item}>
-                            <div className={s.copyright}>© 2016 Febox System. Все права защищены.</div>
+                            <div className={s.copyright}>© Febox Technologies Inc. Все права защищены.</div>
                         </div>
                     </div>
                 </footer>

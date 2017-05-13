@@ -4,6 +4,8 @@ import { Link } from 'react-router'
 import s from './styles.css'
 
 import ArrowIcon from './arrow.svg'
+import InstagramIcon from './instagram.svg'
+import VkontakteIcon from './vkontakte.svg'
 
 export default class Slider extends Component {
 
@@ -26,9 +28,9 @@ export default class Slider extends Component {
                 <div className={s.item}>
                     <div className={`${s.video} ${s[this.state.video]}`}>
                         <ReactDriveIn
-                            show='http://avantel.ru/upload/iblock/de9/_7.webm'
+                            //show='http://avantel.ru/upload/iblock/de9/_7.webm'
                             // show='http://avantel.ru/upload/iblock/cc6/_4.webm'
-                            //show='https://www.agima.ru/upload/iblock/f7d/f7dfd450297a53076fd5db307bd8bb7c.mp4'
+                            show='https://www.agima.ru/upload/iblock/f7d/f7dfd450297a53076fd5db307bd8bb7c.mp4'
                             onPlaying={::this.videoLoaded}
                         />
                     </div>
@@ -39,10 +41,18 @@ export default class Slider extends Component {
                                 <div className={s.head}>
                                     <h2>Студия Фебокс — <br/>это производственное digital-агентство</h2>
                                     <p>В нашей студии смелые идеи и современные технологии смешиваясь, <br/>образуют эффективный инструмент для решения любых задач</p>
-                                    <Link to='/work'>
-                                        Смотреть работы
-                                        <ArrowIcon/>
-                                    </Link>
+                                    <div className={s.buttons}>
+                                        <Link className={s.button} to='/work'>
+                                            Смотреть работы
+                                            <ArrowIcon/>
+                                        </Link>
+                                        <a className={s.socialButton} href='https://www.instagram.com/febox26/' target='_blank'>
+                                            <InstagramIcon/>
+                                        </a>
+                                        <a className={s.socialButton} href='https://vk.com/febox' target='_blank'>
+                                            <VkontakteIcon/>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

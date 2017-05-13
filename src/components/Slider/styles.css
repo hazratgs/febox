@@ -75,41 +75,78 @@
             @apply --font-smooth;
           }
 
-          & a {
-            display: inline-block;
-            border: 2px solid rgba(255, 255, 255, 0.2);
-            color: #fff;
-            padding: 0 40px 0 20px;
-            height: 40px;
-            line-height: 42px;
-            font-family: var(--gerbera);
+          & .buttons {
+            display: flex;
             margin-top: 35px;
-            font-size: 14px;
-            position: relative;
-            border-radius: 30px;
-            color: rgba(255, 255, 255, 1);
-            box-sizing: content-box;
-            @apply --transition;
-            @apply --font-smooth;
 
-            &:hover {
-              border-color: #fff;
+            & .button {
+              display: inline-block;
+              border: 2px solid rgba(255, 255, 255, 0.2);
+              color: #fff;
+              padding: 0 40px 0 20px;
+              height: 40px;
+              line-height: 42px;
+              font-family: var(--gerbera);
+              font-size: 14px;
+              position: relative;
+              border-radius: 30px;
+              color: rgba(255, 255, 255, 1);
+              box-sizing: content-box;
+              margin-right: 20px;
+              @apply --transition;
+              @apply --font-smooth;
+
+              &:hover {
+                border-color: #fff;
+
+                & svg {
+                  fill: #fff;
+                }
+              }
 
               & svg {
-                fill: #fff;
+                width: 24px;
+                height: 24px;
+                position: absolute;
+                fill: rgba(255, 255, 255, 0.2);
+                right: 10px;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                @apply --transition;
               }
             }
 
-            & svg {
-              width: 24px;
-              height: 24px;
-              position: absolute;
-              fill: rgba(255, 255, 255, 0.2);
-              right: 10px;
-              top: 0;
-              bottom: 0;
-              margin: auto;
-              @apply --transition;
+            & .socialButton {
+              position: relative;
+              height: 44px;
+              width: 44px;
+
+              &:last-child {
+                & svg {
+                  width: 28px;
+                  height: 28px;
+                }
+              }
+
+              &:hover {
+                & svg {
+                  fill: #fff;
+                }
+              }
+
+              & svg {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+                fill: rgba(255, 255, 255, 0.2);
+                width: 24px;
+                height: 24px;
+                @apply --transition;
+              }
             }
           }
         }

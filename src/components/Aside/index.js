@@ -62,13 +62,11 @@ export default class Aside extends Component {
                             </div>
                         </div>
                         <div className={`${s.social} ${s[this.state.socialLoader]}`}>
-                            <a href='/'>
-                                <VkIcon/>
-                                <span>Пишем крутые посты</span>
-                            </a>
                             <a href='/' className={s.instagram}>
                                 <InstagramIcon/>
-                                <span>Инстаграм</span>
+                            </a>
+                            <a href='/'>
+                                <VkIcon/>
                             </a>
                         </div>
                         <div className={`${s.contact} ${s[this.state.contactLoader]}`}>
