@@ -137,6 +137,9 @@ class Company extends Component {
                                 <strong>Юлия Суворова</strong>
                                 <span>Руководитель UX-исследований</span>
                             </div>
+                            <div className={s.item}>
+                                <div className={s.vacancy}></div>
+                            </div>
                         </div>
                     </div>
                 </div>
