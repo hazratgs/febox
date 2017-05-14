@@ -11,18 +11,9 @@
 
   &.white {
     & .logo {
-      & .wrapper {
-        & .f, & .e {
-          & span {
-            background-color: #000;
-          }
-        }
-      }
 
-      & .title {
-        & strong {
-          color: rgba(0, 0, 0, 0.6);
-        }
+      & svg {
+        fill: #000;
       }
     }
 
@@ -62,66 +53,18 @@
     top: 0;
     z-index: 9999;
     width: 48px;
+    cursor: pointer;
     height: 48px;
+    @apply --font-smooth;
+    @apply --transition;
 
-    & .wrapper {
-      position: relative;
-      display: flex;
-      width: 48px;
-
-      & .f {
-        flex: 1;
-        margin-right: 3px;
-
-        & span {
-          display: block;
-          height: 6px;
-          background-color: #fff;
-          margin-bottom: 3px;
-
-          &:nth-child(3){
-            width: 50%;
-          }
-
-          &:last-child {
-            margin-bottom: 0;
-          }
-        }
-      }
-
-      & .e {
-        flex: 1;
-
-        & span {
-          display: block;
-          height: 6px;
-          background-color: #fff;
-          margin-bottom: 3px;
-
-          &:nth-child(2){
-            width: 50%;
-          }
-
-          &:last-child {
-            margin-bottom: 0;
-          }
-        }
-      }
+    &:active {
+      transform: scale(0.95);
     }
 
-    & .title {
-      margin-top: 5px;
-
-      & strong {
-        font-weight: bold;
-        text-transform: uppercase;
-        font-size: 9px;
-        letter-spacing: 5.5px;
-        font-family: var(--gerbera);
-        position: relative;
-        left: -1px;
-        color: rgba(255, 255, 255, 0.3);
-      }
+    & svg {
+      fill: #fff;
+      width: 52px;
     }
   }
 

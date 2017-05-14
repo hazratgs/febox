@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Link } from 'react-router'
 import s from './styles.css'
 
+import Logo from './logo.svg'
+
 export default class Header extends Component {
     render() {
         return (
@@ -9,21 +11,23 @@ export default class Header extends Component {
                 <div className={s.wrapper}>
                     <div className={s.logo}>
                         <Link to='/'>
-                            <div className={s.wrapper}>
-                                <div className={s.f}>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                                <div className={s.e}>
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </div>
-                            </div>
-                            <div className={s.title}>
-                                <strong>febox</strong>
-                            </div>
+                            <Logo/>
+
+                            {/*<div className={s.wrapper}>*/}
+                                {/*<div className={s.f}>*/}
+                                    {/*<span></span>*/}
+                                    {/*<span></span>*/}
+                                    {/*<span></span>*/}
+                                {/*</div>*/}
+                                {/*<div className={s.e}>*/}
+                                    {/*<span></span>*/}
+                                    {/*<span></span>*/}
+                                    {/*<span></span>*/}
+                                {/*</div>*/}
+                            {/*</div>*/}
+                            {/*<div className={s.title}>*/}
+                                {/*<strong>febox</strong>*/}
+                            {/*</div>*/}
                         </Link>
                     </div>
                     <div className={s.nav}>
