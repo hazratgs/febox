@@ -9,8 +9,9 @@ const initialState = {
     works: [
         {
             img: 'https://ony.ru/upload/Blocks/image/case_thumb/eb1e3a99999d646d4a5737b592a63a76.jpg',
-            title: 'Новая Третьяковка',
-            description: 'Ребрендинг',
+            video: 'https://www.agima.ru/upload/iblock/f7d/f7dfd450297a53076fd5db307bd8bb7c.mp4',
+            title: 'Рандеву',
+            description: 'Система онлайн заказа еды',
             type: 'Веб-сайты'
         },
         {
@@ -33,6 +34,7 @@ const initialState = {
         },
         {
             img: 'https://ony.ru/upload/Blocks/image/case_thumb/f5d94e77e92e897eec026447813ac546.png',
+            video: '/src/static/video/randevu05.mp4',
             title: 'Рамблер',
             description: 'Ребрендинг и UI дизайн-система',
             type: 'Веб-сайты'

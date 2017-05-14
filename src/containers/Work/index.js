@@ -1,6 +1,11 @@
 import React, { Component } from 'react'
 import Footer from '../../components/Footer'
 
+/* eslint-disable */
+import enableInlineVideo from 'iphone-inline-video';
+/* eslint-enable */
+
+
 import { connect } from 'react-redux'
 import * as Actions from '../../actions/Work'
 import * as AppActions from '../../actions/App'
@@ -66,6 +71,7 @@ class Work extends Component {
                         </div>
                     </div>
 
+                    {/*<enableInlineVideo />*/}
                     <div className={`${s.content} ${s[this.props.work.state]}`}>
                         {items}
                     </div>
@@ -88,7 +94,14 @@ class Item extends Component {
                     <p>{this.props.item.description}</p>
                 </div>
                 <div className={s.bg}>
-                    <div className={s.img} style={style}></div>
+                    {   this.props.item.video
+                        ? <div className={s.video}>
+                            <video autoPlay muted loop playsInline src={this.props.item.video}>
+                                <source src={this.props.item.video} type='video/mp4'/>
+                            </video>
+                          </div>
+                        : <div className={s.img} style={style}></div>
+                    }
                     <div className={s.overlay}></div>
                 </div>
             </div>

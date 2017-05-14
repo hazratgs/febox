@@ -52,9 +52,9 @@
     left: 0;
     top: 0;
     z-index: 9999;
-    width: 48px;
+    width: 52px;
     cursor: pointer;
-    height: 48px;
+    height: 36px;
     @apply --font-smooth;
     @apply --transition;
 
@@ -78,13 +78,13 @@
 
     & .wrapper {
       position: relative;
-      height: 45px;
-      margin-right: 50px;
+      height: 36px;
+      margin-right: 36px;
       display: var(--phone);
 
       & a {
         color: #fff;
-        line-height: 42px;
+        line-height: 36px;
         padding: 2px 0;
         font-size: 17px;
         font-family: var(--gerbera);
@@ -110,14 +110,14 @@
 
     & .menu {
       transition: all 0.3s ease;
-      width: 45px;
-      height: 45px;
+      width: 36px;
+      height: 36px;
       background-color: transparent!important;
       cursor: pointer;
       position: relative;
       display: flex;
       align-items: center;
-      top: -4px;
+      top: -1px;
 
       &:hover {
         & div {
@@ -154,27 +154,21 @@
   }
 }
 
-
-@media screen and (max-width: 570px) {
+@media screen and (max-width: 540px) {
   .header {
-    height: 64px;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: var(--color-bg);
-    box-shadow: 0px 5px 10px -3px rgba(0, 0, 0, 0.3);
-    z-index: 9999;
-
     & .logo {
-      & .title {
-        display: none;
+      & svg {
+        width: 36px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto;
       }
     }
 
     & .nav {
       & .menu {
-        top: -6px;
+        top: -4px;
       }
     }
   }

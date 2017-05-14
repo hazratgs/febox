@@ -14,7 +14,7 @@ export default class Footer extends Component {
                             <div className={s.contact}>
                                 <div className={s.phone}>
                                     <PhoneIcon/>
-                                    <strong>8 800 600-40-40</strong>
+                                    <a href='tel:+74954113561'>8 800 600-40-40</a>
                                     <small>Все звонки по России бесплатны</small>
                                 </div>
                                 <div className={s.work}>

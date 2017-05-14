@@ -6,7 +6,6 @@
   display: flex;
   width: 100vw;
 
-
   & .wrapper {
     display: flex;
     width: 100%;
@@ -311,42 +310,21 @@
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 1170px) {
   .contact .wrapper {
-    height: 100%;
 
-    & .content .form {
-      width: 100%;
-      max-width: 380px;
-      margin: auto;
+    & .map {
+      & .data {
+        bottom: 150px;
+        right: 0;
+        left: auto;
+        width: 280px;
 
-      & .item {
-        display: block;
-
-        & .input {
-
-          &:nth-child(2){
-            margin-left: 0;
-          }
-
-          & input {
-            padding: 0;
-          }
-
-          & textarea {
-            padding: 7px 0 6px;
-          }
-
-          & label {
-            left: 0;
-          }
-        }
-
-        &.footer {
-          display: block;
-
-          & .file {
-            justify-content: flex-start;
+        & .marker {
+          &:before {
+            bottom: auto;
+            left: 30px;
+            top: 59px;
           }
         }
       }
@@ -354,9 +332,28 @@
   }
 }
 
+@media screen and (max-width: 960px) {
+  .contact .wrapper {
+    & .content .form {
+      max-width: 380px;
+
+      & .item {
+
+        &.footer {
+
+          & .button {
+            flex: 0.7;
+          }
+        }
+      }
+    }
+  }
+
+}
+
 @media screen and (max-width: 740px) {
   .contact .wrapper {
-    padding: 100px 0 50px;
+    padding: 120px 0 50px;
     display: block;
 
     & .content .form {
@@ -406,40 +403,42 @@
   }
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 540px) {
   .contact .wrapper {
+    height: 100%;
+
     & .content .form {
+      width: 100%;
       max-width: 380px;
+      margin: auto;
 
       & .item {
+        display: block;
 
-        &.footer {
+        & .input {
 
-          & .button {
-            flex: 0.7;
+          &:nth-child(2){
+            margin-left: 0;
+          }
+
+          & input {
+            padding: 0;
+          }
+
+          & textarea {
+            padding: 7px 0 6px;
+          }
+
+          & label {
+            left: 0;
           }
         }
-      }
-    }
-  }
 
-}
+        &.footer {
+          display: block;
 
-@media screen and (max-width: 1170px) {
-  .contact .wrapper {
-
-    & .map {
-      & .data {
-        bottom: 150px;
-        right: 0;
-        left: auto;
-        width: 280px;
-
-        & .marker {
-          &:before {
-            bottom: auto;
-            left: 30px;
-            top: 59px;
+          & .file {
+            justify-content: flex-start;
           }
         }
       }

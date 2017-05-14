@@ -34,7 +34,7 @@ class Contact extends Component {
                         <MapIcon />
                         <div className={s.data}>
                             <div className={s.list}>
-                                <a className={s.email} href='#'>hello@febox.ru</a>
+                                <a className={s.email} href='mailto:hello@febox.ru'>hello@febox.ru</a>
                                 <a className={s.phone} href='tel:+79285396966'>+7 (928) 539-69-66</a>
                             </div>
                             <div className={s.marker}><b></b>Дербент, Гагарина, 15а, 2 этаж</div>

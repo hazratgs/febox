@@ -28,9 +28,10 @@ export default class Slider extends Component {
                 <div className={s.item}>
                     <div className={`${s.video} ${s[this.state.video]}`}>
                         <ReactDriveIn
-                            //show='http://avantel.ru/upload/iblock/de9/_7.webm'
+                            show='http://avantel.ru/upload/iblock/de9/_7.webm'
                             // show='http://avantel.ru/upload/iblock/cc6/_4.webm'
-                            show='https://www.agima.ru/upload/iblock/f7d/f7dfd450297a53076fd5db307bd8bb7c.mp4'
+                            // show='https://www.agima.ru/upload/iblock/f7d/f7dfd450297a53076fd5db307bd8bb7c.mp4'
+                            // show='/src/static/video/randevu05.mp4'
                             onPlaying={::this.videoLoaded}
                         />
                     </div>
