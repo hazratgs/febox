@@ -72,9 +72,8 @@
     display: flex;
     position: absolute;
     right: 0;
-    top: 0;
+    top: -1px;
     z-index: 9999;
-
 
     & .wrapper {
       position: relative;
@@ -84,7 +83,7 @@
 
       & a {
         color: #fff;
-        line-height: 36px;
+        line-height: 28px;
         padding: 2px 0;
         font-size: 17px;
         font-family: var(--gerbera);
@@ -117,7 +116,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      top: -1px;
+      top: -5px;
 
       &:hover {
         & div {
@@ -153,6 +152,7 @@
     }
   }
 }
+ 
 
 @media screen and (max-width: 540px) {
   .header {

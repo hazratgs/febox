@@ -32,7 +32,6 @@
     "postcss-media-variables": "^2.0.0",
     "postcss-partial-import": "^3.1.0",
     "postcss-short": "^3.0.3",
-    "react-drive-in": "^1.7.3",
     "redux-logger": "^2.6.1",
     "redux-thunk": "^2.0.1",
     "resolve-url-loader": "^1.4.3",
@@ -46,10 +45,10 @@
     "webpack-merge": "^0.8.3"
   },
   "dependencies": {
-    "iphone-inline-video": "^2.0.2",
     "react": "^15.0.1",
     "react-dom": "^15.0.1",
     "react-helmet": "^4.0.0",
+    "react-player": "^0.18.0",
     "react-redux": "^4.4.4",
     "react-router": "^2.0.1",
     "react-text-mask": "^1.0.0",
