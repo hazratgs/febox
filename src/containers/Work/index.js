@@ -1,11 +1,6 @@
 import React, { Component } from 'react'
 import Footer from '../../components/Footer'
 
-/* eslint-disable */
-import enableInlineVideo from 'iphone-inline-video';
-/* eslint-enable */
-
-
 import { connect } from 'react-redux'
 import * as Actions from '../../actions/Work'
 import * as AppActions from '../../actions/App'
