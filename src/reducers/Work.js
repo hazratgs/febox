@@ -9,16 +9,19 @@ const initialState = {
     works: [
         {
             img: 'https://ony.ru/upload/Blocks/image/case_thumb/eb1e3a99999d646d4a5737b592a63a76.jpg',
-            video: 'https://www.agima.ru/upload/iblock/f7d/f7dfd450297a53076fd5db307bd8bb7c.mp4',
-            title: 'Рандеву',
-            description: 'Система онлайн заказа еды',
-            type: 'Веб-сайты'
+            video: 'https://ony.ru/upload/Works/video_mp4/6a13ef158678744dd126d9c080372518.mp4',
+            title: 'Меридиан',
+            description: 'Интернет-магазин крупного представителя в сфере продаж цифровой техники',
+            type: 'Веб-сайты',
+            attach: true
         },
         {
             img: 'https://ony.ru/upload/Blocks/image/case_thumb/d3fb36fa2f98752e290f355b6d0f142b.jpg',
-            title: 'Третьяковская галерея',
-            description: 'Новый сайт',
-            type: 'Веб-сайты'
+            video: 'https://ony.ru/upload/Works/video_mp4/5177836a28c3a6a168b25662fa134c34.mp4',
+            title: 'Рандеву',
+            description: 'Адаптивный сайт, на котором люди заказывают еду прямо на дом',
+            type: 'Веб-сайты',
+            attach: true
         },
         {
             img: 'https://ony.ru/upload/Blocks/image/case_thumb/811e21ca565de0c6412779f914864a2d.jpg',
@@ -34,7 +37,6 @@ const initialState = {
         },
         {
             img: 'https://ony.ru/upload/Blocks/image/case_thumb/f5d94e77e92e897eec026447813ac546.png',
-            video: '/src/static/video/randevu05.mp4',
             title: 'Рамблер',
             description: 'Ребрендинг и UI дизайн-система',
             type: 'Веб-сайты'

@@ -20,9 +20,16 @@ class Home extends Component {
     }
 
     render() {
+        let works = []
+        for (let item of this.props.work.works){
+            if (!item.attach) continue
+
+            works.push(item)
+        }
+
         return (
             <div className={s.home}>
-                <Slider/>
+                <Slider works={works}/>
                 <Footer/>
             </div>
         )
@@ -31,7 +38,8 @@ class Home extends Component {
 
 function mapStateToProps (state) {
     return {
-        home: state.Home
+        home: state.Home,
+        work: state.Work
     }
 }
 

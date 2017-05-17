@@ -1,21 +1,14 @@
 @import "../../styles/variables.css";
-@import "../../../node_modules/slick-carousel/slick/slick.css";
 
 .wrapper {
   width: 100vw;
   background-color: var(--color-bg);
 
-  & .slick {
-    & > div {
-      & > div {
-        display: flex;
-      }
-    }
+  * {
+    outline: none;
   }
 
   & .item {
-    display: flex;
-    align-items: center;
     position: relative;
     overflow: hidden;
     height: 100vh;
@@ -25,51 +18,36 @@
 
     & .video {
       position: absolute;
+      z-index: 5;
       left: 0;
       top: 0;
       width: 100%;
       height: 100%;
-      @apply --transition;
 
-      & div {
-        width: 100%!important;
-        height: 100%!important;
-        position: absolute;
+      & video {
+        width: 100%;
+        height: 100%;
+        position: relative;
         left: 0;
         top: 0;
-
-        & video {
-          width: 100%;
-          height: 100%;
-          position: relative;
-          left: 0;
-          top: 0;
-          object-fit: cover;
-        }
-      }
-
-      &.hidden {
-        opacity: 0;
-      }
-
-      &.active {
-        opacity: 0.5;
+        object-fit: cover;
+        z-index: 4;
       }
     }
 
     & .block {
       display: flex;
-      align-items: flex-end;
+      align-items: center;
       position: relative;
       height: 100%;
       width: 100vw;
       opacity: 1;
-      transform: translateY(0px);
-      transition: all 0.6s cubic-bezier(0, 0.3, 0.05, 0.93);
+      transform: translateX(0px);
+      transition: transform 1.5s cubic-bezier(.19, 1, .22, 1);
+      z-index: 15;
 
       &.hidden {
-        transform: translateY(25px);
-        opacity: 0;
+        transform: translateX(100px);
       }
     }
 
@@ -77,6 +55,7 @@
       width: var(--width);
       padding: var(--padding);
       position: relative;
+      z-index: 15;
       margin: 0 auto 120px;
 
       & .content {
@@ -103,20 +82,19 @@
 
           & .buttons {
             display: flex;
-            margin-top: 35px;
+            margin-top: 25px;
 
             & .button {
               display: inline-block;
-              border: 2px solid rgba(255, 255, 255, 0.2);
-              color: #fff;
-              padding: 0 40px 0 20px;
+              border: 2px solid rgba(255, 255, 255, 0);
+              padding: 0 40px 0 0;
               height: 40px;
               line-height: 42px;
               font-family: var(--gerbera);
               font-size: 14px;
               position: relative;
               border-radius: 30px;
-              color: rgba(255, 255, 255, 1);
+              color: rgba(255, 255, 255, 0.9);
               box-sizing: content-box;
               margin-right: 20px;
               @apply --transition;
@@ -130,47 +108,19 @@
                 }
               }
 
+              &:active {
+                transform: scale(0.92);
+              }
+
               & svg {
                 width: 24px;
                 height: 24px;
                 position: absolute;
-                fill: rgba(255, 255, 255, 0.2);
+                fill: #fff;
                 right: 10px;
-                top: 0;
+                top: 1px;
                 bottom: 0;
                 margin: auto;
-                @apply --transition;
-              }
-            }
-
-            & .socialButton {
-              position: relative;
-              height: 44px;
-              width: 44px;
-
-              &:last-child {
-                & svg {
-                  width: 28px;
-                  height: 28px;
-                }
-              }
-
-              &:hover {
-                & svg {
-                  fill: #fff;
-                }
-              }
-
-              & svg {
-                position: absolute;
-                left: 0;
-                right: 0;
-                top: 0;
-                bottom: 0;
-                margin: auto;
-                fill: rgba(255, 255, 255, 0.2);
-                width: 24px;
-                height: 24px;
                 @apply --transition;
               }
             }
@@ -244,30 +194,6 @@
                 }
               }
             }
-          }
-        }
-      }
-    }
-  }
-}
-
-@media screen and (max-height: 768px) {
-  .wrapper {
-    & .item {
-      max-height: 671px;
-
-      & .block {
-        align-items: flex-end;
-
-        & .data {
-          margin: 0 0 40px 0;
-
-          & .content {
-            padding: 0;
-          }
-
-          & .news {
-            padding: 40px 0 0 0;
           }
         }
       }
@@ -376,28 +302,41 @@
 @media screen and (max-width: 540px) {
   .wrapper {
     & .item {
-      min-height: 480px;
-      height: 500px;
+      height: 80vh;
+      max-height: 540px;
 
       & .block {
 
         & .data {
-          margin: 0 auto 40px;
+          margin: 0;
 
           & .content {
+            padding-top: 20px;
+
             & .head {
+              position: relative;
+
               & h2 {
-                font-size: 21px;
-                margin-bottom: 15px;
+                font-size: 36px;
+                margin-bottom: 10px;
               }
 
               & p {
-              //font-size: 14px;
+                font-size: 18px;
+                line-height: 24px;
+                font-weight: 300;
               }
 
               & .buttons {
-              //margin-top: 20px;
+                position: absolute;
+                margin: 0;
+                bottom: -52px;
 
+                & .button {
+                  &:hover {
+                    border-color: transparent;
+                  }
+                }
               }
             }
           }

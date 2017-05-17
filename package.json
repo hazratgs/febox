@@ -51,8 +51,10 @@
     "react-player": "^0.18.0",
     "react-redux": "^4.4.4",
     "react-router": "^2.0.1",
+    "react-slick": "^0.14.11",
     "react-text-mask": "^1.0.0",
     "react-textarea-autosize": "^4.0.5",
+    "react-view-pager": "^0.5.1",
     "redux": "^3.4.0"
   }
 }
