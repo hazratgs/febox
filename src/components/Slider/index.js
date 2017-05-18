@@ -14,46 +14,70 @@ export default class Slider extends PureComponent {
 
         // Слайды
         this.slides = []
+        this.blobs = []
     }
 
     state = {
-        activeSlide: 0,
-        start: true
+        activeSlide: null,
+        blobs: [],
+        videos: [],
+
     }
 
     componentDidMount() {
 
-        console.log(this.slides)
-
         // Запуск первого слайда
-        setTimeout(() => this.slide([0]), 300)
+        if (Array.isArray(this.props.works)){
+            setTimeout(() => this.slide([this.props.works[0]['id']]), 600)
+        }
     }
 
-    slide(param) {
-        // if (!this.slides.length) return null
+    async videoLoader(slide) {
+        try {
+            let response = await fetch(slide.video, {
+                method: 'get',
+                cache: 'force-cache',
+                mode: 'no-cors'
+            });
+
+            let blob = await response.blob();
+            let objectURL = URL.createObjectURL(blob);
+            return objectURL;
+
+        } catch (e){
+            return null
+        }
+    }
+
+    async slide(param) {
 
         // Останавливаем другие слайды
         // this.slides.map(item => item.pause())
 
-        // Ожидаем полной загрузки видео
+        // Смотрим, загружено ли видео ранее
+        if (!this.state.videos.includes(param[0])){
 
-        // Запускаем новый
-        // setTimeout(() => this.slides[param[0]].play(), 300)
+            // Ожидаем полной загрузки видео
+            let blob = await this.videoLoader(this.props.works[param[0]]);
+
+            // Фиксируем загрузку видео
+            this.blobs = [...this.blobs, blob]
+
+            // Запускаем новый
+            // setTimeout(() => this.slides[param[0]].play(), 300)
+        }
 
         // Обновление активного элемента
-        this.setState({activeSlide: param[0]})
-
+        this.setState({activeSlide: this.props.works[param[0]].id})
     }
 
     render() {
         let works = this.props.works.map((item, index) => {
             if (item === null) return null;
             return <Item
-                        key={index}
-                        slide={index}
+                        key={item.id}
                         data={item}
                         state={this.slides}
-                        start={this.state.start}
                         active={this.state.activeSlide}
                     />
         })
@@ -68,6 +92,7 @@ export default class Slider extends PureComponent {
                             className={s.track}
                             onViewChange={::this.slide}
                         >
+                            {works}
                         </Track>
                     </Frame>
                 </ViewPager>
@@ -78,20 +103,25 @@ export default class Slider extends PureComponent {
 
 class Item extends Slider {
     render() {
-        let active = this.props.active === this.props.slide ? 'active' : 'hidden'
+        let active = this.props.active === this.props.data.id ? 'active' : 'hidden'
+        let loaded = this.state.videos[this.props.data.id]
 
         return (
             <View className={s.view}>
                 <div className={s.item}>
                     <div className={`${s.video}`}>
-                        {/*<video*/}
-                            {/*src={this.props.data.video}*/}
-                            {/*preload='auto'*/}
-                            {/*loop*/}
-                            {/*muted*/}
-                            {/*playsInline*/}
-                            {/*ref={slide => {this.props.state[this.props.slide] = slide}}*/}
-                        {/*/>*/}
+
+                        { loaded
+                            ?   <video
+                                    src={this.props.data.video}
+                                    loop
+                                    muted
+                                    playsInline
+                                    ref={ slide => {this.props.state[this.props.data.id] = slide} }
+                                />
+                            :   <div style={{color: '#fff'}}>Загрузка...</div>
+                        }
+
                     </div>
                     <div className={`${s.block} ${s[active]}`}>
                         <div className={s.data}>

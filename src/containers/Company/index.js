@@ -119,22 +119,22 @@ class Company extends Component {
                             <div className={s.item}>
                                 <img
                                     alt='Алим Муминов'
-                                    src='https://static.tildacdn.com/tild6338-3834-4565-b864-623761383061/8e4d1e002c1447d78cf1bf200df8f955.jpg'/>
+                                    src='/src/static/img/alim.png'/>
                                 <strong>Алим Муминов</strong>
                                     <span>Art Director</span>
                             </div>
                             <div className={s.item}>
                                 <img
                                     alt='Хазрат Гаджикеримов'
-                                    src='https://static.tildacdn.com/tild3934-6631-4632-b234-366338336637/83783e544f8641e8a28adc9cdb892ab7.jpg'/>
+                                    src='/src/static/img/hazratgs.png'/>
                                 <strong>Хазрат Гаджикеримов</strong>
                                 <span>Full stack developer</span>
                             </div>
                             <div className={s.item}>
                                 <img
-                                    alt='Юлия Суворова'
-                                    src='https://static.tildacdn.com/tild3339-6437-4565-b561-363961303462/4235531d405b4877bf139382c56a7f2d.jpg'/>
-                                <strong>Юлия Суворова</strong>
+                                    alt='Арчил Шамсутдинов'
+                                    src='/src/static/img/archil.png'/>
+                                <strong>Арчил Шамсутдинов</strong>
                                 <span>Руководитель UX-исследований</span>
                             </div>
                             <div className={s.item}>

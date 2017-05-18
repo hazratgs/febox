@@ -8,16 +8,18 @@ import {
 const initialState = {
     works: [
         {
+            id: 0,
             img: 'https://ony.ru/upload/Blocks/image/case_thumb/eb1e3a99999d646d4a5737b592a63a76.jpg',
-            video: 'https://ony.ru/upload/Works/video_mp4/6a13ef158678744dd126d9c080372518.mp4',
+            video: '/src/static/video/6a13ef158678744dd126d9c080372518.mp4',
             title: 'Меридиан',
             description: 'Интернет-магазин крупного представителя в сфере продаж цифровой техники',
             type: 'Веб-сайты',
             attach: true
         },
         {
+            id: 1,
             img: 'https://ony.ru/upload/Blocks/image/case_thumb/d3fb36fa2f98752e290f355b6d0f142b.jpg',
-            video: 'https://ony.ru/upload/Works/video_mp4/5177836a28c3a6a168b25662fa134c34.mp4',
+            video: '/src/static/video/5177836a28c3a6a168b25662fa134c34.mp4',
             title: 'Рандеву',
             description: 'Адаптивный сайт, на котором люди заказывают еду прямо на дом',
             type: 'Веб-сайты',
