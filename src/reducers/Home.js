@@ -1,13 +1,26 @@
-import { HELLO } from '../constants/Home'
+import {
+    ADD_BLOB,
+    ADD_VIDEO,
+    SET_ACTIVE_SLIDE
+
+} from '../constants/Home'
 
 const initialState = {
-    hello: ''
+    activeSlide: null,
+    blobs: {},
+    videos: {}
 }
 
 export default function homeState(state = initialState, action) {
     switch (action.type){
-        case HELLO:
-            return {...state, hello: action.payload}
+        case ADD_BLOB:
+            return {...state, blobs: action.payload}
+
+        case ADD_VIDEO:
+            return {...state, videos: action.payload}
+
+        case SET_ACTIVE_SLIDE:
+            return {...state, activeSlide: action.payload}
 
         default:
             return state

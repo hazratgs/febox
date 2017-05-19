@@ -20,16 +20,10 @@ class Home extends Component {
     }
 
     render() {
-        let works = []
-        for (let item of this.props.work.works){
-            if (!item.attach) continue
-
-            works.push(item)
-        }
-
+        let works = this.props.work.works.filter(item => item.attach)
         return (
             <div className={s.home}>
-                <Slider works={works}/>
+                <Slider works={works} state={this.props.home} homeActions={this.props.actions.homeActions}/>
                 <Footer/>
             </div>
         )

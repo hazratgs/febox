@@ -11,22 +11,6 @@ import ArrowIcon from './arrow.svg'
 
 export default class Slider extends PureComponent {
 
-    constructor() {
-        super();
-
-        // Слайды
-        this.slides = []
-
-        // Загруженные видео
-        this.blobs = {}
-    }
-
-    state = {
-        activeSlide: null,
-        blobs: {},
-        slides: {}
-    }
-
     componentDidMount() {
 
         // Запуск первого слайда
@@ -57,29 +41,40 @@ export default class Slider extends PureComponent {
         // Данные текущего слайда
         const slide = this.props.works[param[0]];
 
-        // Останавливаем другие слайды
-        // this.slides.map(item => item.pause())
-
         // Смотрим, загружено ли видео ранее
-        if (!this.state.blobs.hasOwnProperty(slide.id)){
+        if (!this.props.state.blobs.hasOwnProperty(slide.id)){
 
             // Ожидаем полной загрузки видео
             let blob = {};
-            blob[slide.id] = await this.videoLoader(slide.id)
+            blob[slide.id] = await this.videoLoader(slide)
 
             // Фиксируем загрузку видео
-            const updateBlobs = update(this.state.blobs, {$merge: blob});
-            this.setState({blobs: updateBlobs});
+            const updateBlobs = update(this.props.state.blobs, {$merge: blob});
+            this.props.homeActions.addBlobElement(updateBlobs)
 
-            // Запускаем новый
-            // setTimeout(() => this.slides[param[0]].play(), 300)
+            // Обновление активного элемента
+            this.props.homeActions.activeNewSlide(slide.id)
+
         } else {
 
+            // Есть видео в сторе
+            if (this.props.state.videos.hasOwnProperty(slide.id)){
+
+                // Останавливаем другие слайды
+                for (let item in this.props.state.videos){
+                    this.props.state.videos[item].pause()
+                }
+
+                // Запускаем новый
+                setTimeout(() => this.props.state.videos[param[0]].play(), 300)
+
+                // Обновление активного элемента
+                this.props.homeActions.activeNewSlide(slide.id)
+            }
 
         }
 
-        // Обновление активного элемента
-        this.setState({activeSlide: slide.id})
+        // this.setState({activeSlide: slide.id})
     }
 
     render() {
@@ -88,9 +83,8 @@ export default class Slider extends PureComponent {
             return <Item
                         key={item.id}
                         data={item}
-                        blobs={this.state.blobs}
-                        state={this.slides}
-                        active={this.state.activeSlide}
+                        homeActions={this.props.homeActions}
+                        state={this.props.state}
                     />
         })
 
@@ -114,11 +108,27 @@ export default class Slider extends PureComponent {
 }
 
 class Item extends Slider {
+
+    fixedStateVideo(video) {
+        if (!this.props.state.videos.hasOwnProperty(this.props.data.id)){
+
+            // Присваиваем blob url
+            video.src = this.props.state.blobs[this.props.data.id];
+
+            let newVideo = {};
+            newVideo[this.props.data.id] = video
+
+            // Добавляем новое видео в стор
+            const updateVideo = update(this.props.state.videos, {$merge: newVideo});
+            this.props.homeActions.addVideoElement(updateVideo)
+        }
+    }
+
     render() {
-        let active = this.props.active === this.props.data.id ? 'active' : 'hidden'
+        let active = this.props.state.activeSlide === this.props.data.id ? 'active' : 'hidden'
 
         // Если видео не загружено, запускаем лоадер
-        let loaded = this.props.blobs.hasOwnProperty(this.props.active);
+        let loaded = this.props.state.blobs.hasOwnProperty(this.props.data.id);
 
         return (
             <View className={s.view}>
@@ -127,11 +137,10 @@ class Item extends Slider {
 
                         { loaded
                             ?   <video
-                                    src={this.props.data.video}
                                     loop
                                     muted
                                     playsInline
-                                    ref={slide => {this.props.state[this.props.data.id] = slide}}
+                                    ref={::this.fixedStateVideo}
                                 />
                             :   <div style={{color: '#fff'}}>Загрузка...</div>
                         }
