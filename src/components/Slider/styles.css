@@ -49,6 +49,10 @@
       &.hidden {
         transform: translateX(100px);
       }
+
+      &.active {
+        transform: translateX(0);
+      }
     }
 
     & .data {

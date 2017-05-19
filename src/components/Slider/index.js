@@ -3,6 +3,8 @@
 import React, { PureComponent } from 'react'
 import { ViewPager, Frame, Track, View } from 'react-view-pager'
 import { Link } from 'react-router'
+import update from 'immutability-helper';
+
 import s from './styles.css'
 
 import ArrowIcon from './arrow.svg'
@@ -14,14 +16,15 @@ export default class Slider extends PureComponent {
 
         // Слайды
         this.slides = []
-        this.blobs = []
+
+        // Загруженные видео
+        this.blobs = {}
     }
 
     state = {
         activeSlide: null,
-        blobs: [],
-        videos: [],
-
+        blobs: {},
+        slides: {}
     }
 
     componentDidMount() {
@@ -51,32 +54,41 @@ export default class Slider extends PureComponent {
 
     async slide(param) {
 
+        // Данные текущего слайда
+        const slide = this.props.works[param[0]];
+
         // Останавливаем другие слайды
         // this.slides.map(item => item.pause())
 
         // Смотрим, загружено ли видео ранее
-        if (!this.state.videos.includes(param[0])){
+        if (!this.state.blobs.hasOwnProperty(slide.id)){
 
             // Ожидаем полной загрузки видео
-            let blob = await this.videoLoader(this.props.works[param[0]]);
+            let blob = {};
+            blob[slide.id] = await this.videoLoader(slide.id)
 
             // Фиксируем загрузку видео
-            this.blobs = [...this.blobs, blob]
+            const updateBlobs = update(this.state.blobs, {$merge: blob});
+            this.setState({blobs: updateBlobs});
 
             // Запускаем новый
             // setTimeout(() => this.slides[param[0]].play(), 300)
+        } else {
+
+
         }
 
         // Обновление активного элемента
-        this.setState({activeSlide: this.props.works[param[0]].id})
+        this.setState({activeSlide: slide.id})
     }
 
     render() {
-        let works = this.props.works.map((item, index) => {
+        let works = this.props.works.map((item) => {
             if (item === null) return null;
             return <Item
                         key={item.id}
                         data={item}
+                        blobs={this.state.blobs}
                         state={this.slides}
                         active={this.state.activeSlide}
                     />
@@ -104,7 +116,9 @@ export default class Slider extends PureComponent {
 class Item extends Slider {
     render() {
         let active = this.props.active === this.props.data.id ? 'active' : 'hidden'
-        let loaded = this.state.videos[this.props.data.id]
+
+        // Если видео не загружено, запускаем лоадер
+        let loaded = this.props.blobs.hasOwnProperty(this.props.active);
 
         return (
             <View className={s.view}>
@@ -117,7 +131,7 @@ class Item extends Slider {
                                     loop
                                     muted
                                     playsInline
-                                    ref={ slide => {this.props.state[this.props.data.id] = slide} }
+                                    ref={slide => {this.props.state[this.props.data.id] = slide}}
                                 />
                             :   <div style={{color: '#fff'}}>Загрузка...</div>
                         }
