@@ -11,29 +11,25 @@ import ArrowIcon from './arrow.svg'
 
 export default class Slider extends PureComponent {
 
+    // async videoLoader(slide) {
+    //     try {
+    //         let response = await fetch(slide.video, {
+    //             method: 'get',
+    //             cache: 'force-cache',
+    //             mode: 'no-cors'
+    //         });
+    //
+    //         let blob = await response.blob();
+    //         let objectURL = URL.createObjectURL(blob);
+    //         return objectURL;
+    //
+    //     } catch (e){
+    //         return null
+    //     }
+    // }
+
     componentDidMount() {
-
-        // Запуск первого слайда
-        if (Array.isArray(this.props.works)){
-            setTimeout(() => this.slide([this.props.works[0]['id']]), 600)
-        }
-    }
-
-    async videoLoader(slide) {
-        try {
-            let response = await fetch(slide.video, {
-                method: 'get',
-                cache: 'force-cache',
-                mode: 'no-cors'
-            });
-
-            let blob = await response.blob();
-            let objectURL = URL.createObjectURL(blob);
-            return objectURL;
-
-        } catch (e){
-            return null
-        }
+        setTimeout(() => this.slide([0]), 300)
     }
 
     async slide(param) {
@@ -46,35 +42,30 @@ export default class Slider extends PureComponent {
 
             // Ожидаем полной загрузки видео
             let blob = {};
-            blob[slide.id] = await this.videoLoader(slide)
-
-            // Фиксируем загрузку видео
-            const updateBlobs = update(this.props.state.blobs, {$merge: blob});
-            this.props.homeActions.addBlobElement(updateBlobs)
+            blob[slide.id] = await this.props.homeActions.videoLoader(
+                    slide,
+                    this.props.state.videos[slide.id],
+                    this.props.state.blobs
+                )
 
             // Обновление активного элемента
-            this.props.homeActions.activeNewSlide(slide.id)
+            // this.props.homeActions.activeNewSlide(slide.id)
 
-        } else {
-
-            // Есть видео в сторе
-            if (this.props.state.videos.hasOwnProperty(slide.id)){
-
-                // Останавливаем другие слайды
-                for (let item in this.props.state.videos){
-                    this.props.state.videos[item].pause()
-                }
-
-                // Запускаем новый
-                setTimeout(() => this.props.state.videos[param[0]].play(), 300)
-
-                // Обновление активного элемента
-                this.props.homeActions.activeNewSlide(slide.id)
-            }
 
         }
 
-        // this.setState({activeSlide: slide.id})
+        // Останавливаем другие слайды
+        for (let item in this.props.state.videos){
+            this.props.state.videos[item].pause()
+        }
+
+        // Запускаем новый
+        setTimeout(() => this.props.state.videos[param[0]].play(), 300)
+
+        // Обновление активного элемента
+        this.props.homeActions.activeNewSlide(slide.id)
+
+
     }
 
     render() {
@@ -83,7 +74,10 @@ export default class Slider extends PureComponent {
             return <Item
                         key={item.id}
                         data={item}
+                        context={this}
                         homeActions={this.props.homeActions}
+                        slide={this.slide}
+                        works={this.props.works}
                         state={this.props.state}
                     />
         })
@@ -107,20 +101,25 @@ export default class Slider extends PureComponent {
     }
 }
 
-class Item extends Slider {
+class Item extends PureComponent {
 
-    fixedStateVideo(video) {
+    async sleep () {
+        return new Promise(resolve => setTimeout(() => resolve(), 20))
+    }
+
+    async fixedStateVideo(video) {
+        if (video === null) return null
+
+        // Тормозим, что бы зафиксировал видео
+        await this.sleep()
+
         if (!this.props.state.videos.hasOwnProperty(this.props.data.id)){
-
-            // Присваиваем blob url
-            video.src = this.props.state.blobs[this.props.data.id];
-
             let newVideo = {};
             newVideo[this.props.data.id] = video
 
             // Добавляем новое видео в стор
             const updateVideo = update(this.props.state.videos, {$merge: newVideo});
-            this.props.homeActions.addVideoElement(updateVideo)
+            this.props.homeActions.addVideo(updateVideo)
         }
     }
 
@@ -129,21 +128,20 @@ class Item extends Slider {
 
         // Если видео не загружено, запускаем лоадер
         let loaded = this.props.state.blobs.hasOwnProperty(this.props.data.id);
+        // let loaded = false;
 
         return (
             <View className={s.view}>
                 <div className={s.item}>
                     <div className={`${s.video}`}>
 
-                        { loaded
-                            ?   <video
-                                    loop
-                                    muted
-                                    playsInline
-                                    ref={::this.fixedStateVideo}
-                                />
-                            :   <div style={{color: '#fff'}}>Загрузка...</div>
-                        }
+                        { loaded ? '' : <div style={{color: '#fff'}}>Загрузка...</div>}
+                        <video
+                            loop
+                            muted
+                            playsInline
+                            ref={::this.fixedStateVideo}
+                        />
 
                     </div>
                     <div className={`${s.block} ${s[active]}`}>
